@@ -1,5 +1,23 @@
 # Free My TV: notes for Claude
 
+## Fengmi/Formovie S5 Edition
+
+**This is a fork for the Fengmi (Formovie S5 "Peppa") projector running Google TV / Android TV.**
+It uses **pseudo-home mode**: the projector's original home screen stays in place; Free My TV opens on HOME press
+and does not replace the stock home permanently. See AGENTS.md for the full device perimeter.
+
+The projector-specific features are:
+- **Autofocus / Keystone buttons** → native `com.fengmi.projector.imaging` components
+- **Mirroring** → native `cn.formovie.fengos.miracast.WfdActivity`
+- **Voice search** → microphone button mapped to Android TV's `VOICE_SEARCH`
+- **Web remote** → HTTP server on port 8090 with PIN auth
+- **Content row** → Kodi favourites (JSON-RPC localhost:8080) + SmartTube subscriptions (local data file)
+- **Wallpapers** → Lorem Picsum (picsum.photos, keyless)
+- **Debloat** → hides FengOS promo apps (`com.spocky.projengmenu`, etc.), never uninstalled
+- **Remote keys** → only HOME and Live TV are handled; other buttons stay on the firmware
+
+---
+
 A home screen for Google TV and Android TV that replaces the stock one, plus a settings app that switches between
 Free My TV and the TV's original home screen. A plain Android app in Java, built without Gradle by `build.sh`.
 LG TVs (webOS) and Samsung TVs (Tizen) get the same home screen as a web app: `web/`, packed by `webos/` and `tizen/`
